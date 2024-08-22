@@ -1,0 +1,18 @@
+{% extends 'page1.html' %}
+{% block content %}
+<div class="container mt-5">
+    <div class="card mx-auto" style="width: 24rem; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <img src="{{ student.images.url }}" class="card-img-top" alt="Student Image" style="height: 300px; object-fit: cover;">
+        <div class="card-body">
+            <h4 class="card-title">{{ student.firstname }} {{ student.lastname }}</h4>
+            <p class="card-text">
+                <strong>Age:</strong> {{ student.age }}<br>
+                <strong>Core Course:</strong> {{ student.corecourse }}<br>
+                <strong>Address:</strong> {{ student.address }}<br>
+                <strong>Date of Joining:</strong> {{ student.dateofjoin }}<br>
+            </p>
+            
+        </div>
+    </div>
+</div>
+{% endblock %}

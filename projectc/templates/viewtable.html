@@ -1,0 +1,44 @@
+{% extends 'page1.html' %}
+{% block content %}
+{% load static %}
+<body>
+    <div class="container mt-5">
+        <h2>Data Table</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Age</th>
+                    <th>Core Course</th>
+                    <th>Address</th>
+                    <th>Image</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data will be populated here from the database -->
+                {% for i in student %}
+                <tr>
+                    <td>{{ i.id }}</td>
+                    <td><a href="{% url 'student_detail' i.id %}">{{ i.firstname }}</a></td>
+                    <td>{{ i.age }}</td>
+                    <td>{{ i.corecourse }}</td>
+                    <td>{{ i.address }}</td>
+                    <td>{{ i.images }}
+                        <img src="{{i.images.url}}" alt="" height="100" width="100">
+                    </td>
+                    <td><button><a href="{% url 'edit' i.id %}">edit</a></button></td>
+                    <td><button><a href="{% url 'deletedetails' i.id %}">delete</a></button></td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
+{% endblock %}
